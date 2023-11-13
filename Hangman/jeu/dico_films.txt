@@ -1,0 +1,95 @@
+titanic
+avatar
+star wars
+jurassic park
+inception
+gladiator
+matrix
+forrest gump
+le parrain
+the dark knight
+fight club
+pulp fiction
+les evades
+le seigneur des anneaux
+le silence des agneaux
+la ligne verte
+american beauty
+il faut sauver le soldat ryan
+braveheart
+le roi lion
+terminator
+le prestige
+les affranchis
+les infiltres
+the revenant
+le sixieme sens
+shining
+l'exorciste
+orange mecanique
+apocalypse now
+la liste de schindler
+le pianiste
+gatsby le magnifique
+breakfast club
+le laureat
+taxi driver
+minuit a paris
+blade runner
+le bon, la brute et le truand
+reservoir dogs
+fargo
+no country for old men
+voyage au bout de l'enfer
+platoon
+démineurs
+le pont de la riviere kwai
+autant en emporte le vent
+casablanca
+psychose
+sueurs froides
+fenetre sur cour
+coup de foudre à notting hill
+maman, j'ai rate l'avion
+piege de cristal
+rebelle
+la reine des neiges
+le monde de nemo
+toy story
+shrek
+la petite sirene
+aladdin
+mulan
+raiponce
+les indestructibles
+monstres et cie
+zootopie
+vice-versa
+black swan
+the social network
+la la land
+le laureat
+taxi driver
+blade runner
+le bon, la brute et le truand
+reservoir dogs
+fargo
+no country for old men
+voyage au bout de l'enfer
+platoon
+demineurs
+le pont de la riviere kwai
+autant en emporte le vent
+casablanca
+psychose
+sueurs froides
+coup de foudre à notting hill
+maman, j'ai raté l'avion
+piège de cristal
+rebelle
+la reine des neiges
+le monde de nemo
+toy story
+shrek
+la petite sirene
+aladdin

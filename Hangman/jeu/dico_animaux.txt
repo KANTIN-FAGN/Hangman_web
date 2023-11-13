@@ -1,0 +1,100 @@
+lion
+tigre
+elephant
+girafe
+ours
+loup
+panthere
+rhinoceros
+hippopotame
+gorille
+chimpanze
+zebre
+guepard
+hyene
+kangourou
+koala
+orque
+dauphin
+baleine
+requin
+tortue
+crocodile
+alligator
+serpent
+ecureuil
+raton laveur
+castor
+chauve-souris
+lynx
+renard
+loutre
+panda
+koala
+panda roux
+paresseux
+tamanoir
+suricate
+mangouste
+faucon
+aigle
+corbeau
+hibou
+perroquet
+flamant rose
+pigeon
+mouette
+pingouin
+emeu
+autruche
+grenouille
+crapaud
+salamandre
+lezard
+cameleon
+gecko
+tortue de mer
+iguane
+escargot
+méduse
+etoile de mer
+pieuvre
+calmar
+crevette
+homard
+crabes
+poisson-clown
+poisson-lion
+hippocampe
+carpe
+truite
+saumon
+thon
+baleine à bosse
+narval
+morse
+elan
+cerf
+renne
+chevre
+mouton
+cochon
+vache
+cheval
+ane
+chameau
+lama
+girafe
+okapi
+gazelle
+antilope
+elan
+kangourou
+wallaby
+koala
+panda roux
+fennec
+renard arctique
+ours polaire
+morse
+phoque

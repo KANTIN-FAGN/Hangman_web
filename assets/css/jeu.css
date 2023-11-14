@@ -1,19 +1,11 @@
-@font-face {
-    font-family: "craie";
-    src: url("../font/creative\ chalk.ttf") format("truetype");
-}
-@font-face {
-    font-family: "titre";
-    src: url("../font/Cafe24Decoschool.ttf") format("truetype");
-}
 
 @font-face {
-    font-family: "titreV2";
+    font-family: "chalk";
     src: url("../font/Sandbox\ Melodrama.ttf") format("truetype");
 }
 
 *{
-    font-family: "titreV2";
+    font-family: "chalk";
     background-color: rgb(0, 65, 0);
 }
 

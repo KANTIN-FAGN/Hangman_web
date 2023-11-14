@@ -2,10 +2,17 @@
     font-family: "titre";
     src: url("../font/Sandbox\ Melodrama.ttf") format("truetype");
 }
-*{
+
+html {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+* {
     font-family: "titre";
     color: #ffffff;
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -19,10 +26,10 @@ body {
     padding: 0;
 }
 
-section{
+section {
     display: flex;
     justify-content: center;
-    flex-direction: column ;
+    flex-direction: column;
     align-items: center;
     font-size: 60px;
     height: 100vh;
@@ -35,13 +42,35 @@ section{
 }
 
 button {
-   padding: 20px 40px;
-   margin: 60px;
-   background: none;
-   font-size: xx-large;
-   border: none;
+    padding: 15px 30px;
+    margin: 60px;
+    background: none;
+    font-size: 50px;
+    border: none;
+    background-image: url('../img/Encadrement-bouton.png');
+    background-size: cover;
+    background-position: center;
+    background-size: 1500px;
+    background-repeat: no-repeat;
 }
 
-label {
+button:hover {
+    color: #1eff00;
+}
 
+input {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 50px;
+    background-image: url('../img/Encadrement-pseudo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1100px;
+    padding: 30px;
+}
+
+input::placeholder {
+    color: #bba9a9;
 }

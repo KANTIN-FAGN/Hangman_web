@@ -8,6 +8,15 @@ import (
 	"os"
 )
 
+type Display struct {
+	Pseudo  string
+	Level   int
+	Cpt     int
+	Mot     string
+	Lettre  string
+	DispMot []string
+}
+
 var win = false
 var isInWord = false
 var start = 1

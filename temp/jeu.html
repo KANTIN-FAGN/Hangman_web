@@ -1,17 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu</title>
+    <title>HANGMAN</title>
     <link rel="stylesheet" href="../assets/css/jeu.css">
 </head>
-<header>
-    <h1>Mode : {{.Mode}}</h1>
-    <p>TEST DE LA POLICE EN MAJUSCULE</p>
-    <h1>TEST DE LA POLICE EN MAJUSCULE</h1>
-</header>
+
 <body>
-    
+    <header>
+        <div class="augmentation">
+            <p> </p>
+        </div>
+
+        <h1>TITRE NIVEAU</h1>
+        <div class="Info-Perso">
+            <p class="text">écoute moi bien</p>
+            <p class="text">Niveau</p>
+            <p class="text">Points</p>
+        </div>
+    </header>
+    <section>
+        <div class="Bareme">
+            <p>lettre trouvée +5pts</p>
+            <p>Mot trouvé +15pts</p>
+            <p>Lettre manquée -5pts</p>
+            <p>Mot manqué -15pts</p>
+            <p>(récompenses adaptatives)</p>
+        </div>
+        <div class="Gessword">
+            <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
+            <p>Historique des lettres</p>
+            <div class="Submit">
+                <div class="valide">
+                    <input type="text" id="" placeholder="Entrez une lettre">
+                    <button type="submit">Valider</button>
+                    <input type="text" id="" placeholder="Entrez un mot">
+                    <button type="submit">Valider</button>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>

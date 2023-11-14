@@ -1,7 +1,47 @@
+@font-face {
+    font-family: "titre";
+    src: url("../font/Sandbox\ Melodrama.ttf") format("truetype");
+}
+*{
+    font-family: "titre";
+    color: #ffffff;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../img/Tableau.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
 section{
     display: flex;
     justify-content: center;
-    background-color: grey;
     flex-direction: column ;
     align-items: center;
+    font-size: 60px;
+    height: 100vh;
+    width: 250vh;
+    padding-bottom: 150px;
+    padding-right: 50px;
+    background-image: url('../img/Encadrement-All.png');
+    background-size: cover;
+    background-position: center;
+}
+
+button {
+   padding: 20px 40px;
+   margin: 60px;
+   background: none;
+   font-size: xx-large;
+   border: none;
+}
+
+label {
+
 }

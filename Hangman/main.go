@@ -1,7 +1,7 @@
 package main
 
 import (
-	h "hangman/jeu"
+	h "HangmanWeb/jeu"
 )
 
 func main() {

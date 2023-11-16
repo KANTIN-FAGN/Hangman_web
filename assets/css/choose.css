@@ -153,7 +153,7 @@ input:checked+.radio-titre2 {
     ease-in-out 0.75s forwards ease;
 }
 
-input:checked+.radio-titre3::before {
+input:checked+.radio-titre3 {
     display: block;
     transform: scale(1.2);
     color: #ff0000;

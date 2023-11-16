@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "titre";
+    src: url("../font/Sandbox\ Melodrama.ttf") format("truetype");
+}
+
+html {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+* {
+    font-family: "titre";
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../img/Tableau.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+    height: 250px;
+}
+
+.global-header {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.header-element1 {
+    background-image: url('../img/encadrement-titre.png');
+    background-repeat: no-repeat;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 500px;
+    translate: -50%;
+}
+
+.header-element2 {
+    background-image: url('../img/Encadrement-info-joueur.png');
+    background-repeat: no-repeat;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 150px;
+    width: 250px;
+    padding-left: 60px;
+    translate: -10%;
+}
+.section {
+    background-image: url('../img/encadrement-fin.png');
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 700px;
+}
+
+.global-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 500px;
+}
+
+.result {
+    font-size: 150px;
+    transform: translateY(-125%);
+}
+
+button{
+    font-size: 50px;
+    background: none;
+    border: none;
+}
+
+button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    color: #00d0ff;
+}

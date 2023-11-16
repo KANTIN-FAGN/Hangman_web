@@ -126,35 +126,33 @@ header {
 
 input:hover+.radio-titre1 {
     transform: scale(1.2);
+    cursor: pointer;
     color: #1eff00;
 }
 
 input:hover+.radio-titre2 {
     transform: scale(1.2);
+    cursor: pointer;
     color: #ffbf00;
 }
 
 input:hover+.radio-titre3 {
     transform: scale(1.2);
+    cursor: pointer;
     color: #ff0000;
 }
 
 input:checked+.radio-titre1 {
     transform: scale(1.2);
     color: #1eff00;
-    animation: topBubbles1
-    ease-in-out 0.75s forwards ease;
 }
 
 input:checked+.radio-titre2 {
     transform: scale(1.2);
     color: #ffbf00;
-    animation: topBubbles2
-    ease-in-out 0.75s forwards ease;
 }
 
 input:checked+.radio-titre3 {
-    display: block;
     transform: scale(1.2);
     color: #ff0000;
 }

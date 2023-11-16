@@ -9,6 +9,8 @@ html {
 }
 
 * {
+    margin: 0;
+    padding: 0;
     font-family: "chalk";
     color: #ffffff;
 }
@@ -22,55 +24,137 @@ body {
     padding: 0;
 }
 
-header{
+header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+    height: 250px;
+}
+
+.global-header {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.header-element1 {
+    background-image: url('../img/encadrement-titre.png');
+    background-repeat: no-repeat;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 500px;
+    translate: -50%;
+}
+
+.header-element2 {
+    background-image: url('../img/Encadrement-info-joueur.png');
+    background-repeat: no-repeat;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 150px;
+    width: 250px;
+    padding-left: 60px;
+    translate: -10%;
+}
+
+.section-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.global-section {
+    background-image: url('../img/Encadrement-mode-jeu.png');
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    width: 50%;
+    height: 50%;
+}
+
+.modejeu {
     font-size: 50px;
     display: flex;
-    justify-content: space-around;
-}
-
-.cadre{
-    font-size:20px;
-    display: flex;
-    text-align: center;
+    justify-content: center;
     align-items: center;
-    background-image: url("../img/Encadrement-info-joueur.png");
-    background-size: 280%;
-    background-position: center;
+    height: 250px;
+    width: 250px;
 }
 
-.info{
-    background-image: url("../img/Encadrement-info-jeu.png");
-    background-size: 200%;
-    background-position: center;
+.section-validé {
+    background-image: url('../img/Encadrement-validé.png');
     background-repeat: no-repeat;
-}
-
-.divsize{
-    padding: 40px;
-}
-section{
-    height:100vh;
+    height: 150px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.size{
-    font-size: 40px;
-    
-    width:63vh;
-    display:flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../img/Encadrement-info-joueur.png");
-    background-position: center;
-    background-size: 200%;
 }
 
-.mode{
+.bouton {
+    height: 80px;
+    width: 250px;
     display: flex;
-    justify-content: space-around;
-    width: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
+.bouton-validé {
+    background: none;
+    font-size: 100px;
+    border: none;
+}
 
+.bouton-validé:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    color: #1eff00
+}
+
+.modejeu input {
+    opacity: 0;
+}
+
+input:hover+.radio-titre1 {
+    transform: scale(1.2);
+    color: #1eff00;
+}
+
+input:hover+.radio-titre2 {
+    transform: scale(1.2);
+    color: #ffbf00;
+}
+
+input:hover+.radio-titre3 {
+    transform: scale(1.2);
+    color: #ff0000;
+}
+
+input:checked+.radio-titre1 {
+    transform: scale(1.2);
+    color: #1eff00;
+    animation: topBubbles1
+    ease-in-out 0.75s forwards ease;
+}
+
+input:checked+.radio-titre2 {
+    transform: scale(1.2);
+    color: #ffbf00;
+    animation: topBubbles2
+    ease-in-out 0.75s forwards ease;
+}
+
+input:checked+.radio-titre3::before {
+    display: block;
+    transform: scale(1.2);
+    color: #ff0000;
+}

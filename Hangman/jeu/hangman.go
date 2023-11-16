@@ -11,46 +11,63 @@ import (
 type Display struct {
 	Pseudo  string
 	Level   int
-	Cpt     int
-	Mot     string
-	Lettre  string
-	DispMot []string
+	Cpt     int      // compteur pour le display
+	Mot     string   // mot à trouver
+	Lettre  string   // lettre entrée par l'utilisateur
+	DispMot []string // les underscores
+	Mode    string   //Pour le display dans le titre
+	AEL     []string //tableau des lettres
+	AEW     []string //tableau des mots
 }
+
+var Disp = Display{}
 
 var win = false
 var isInWord = false
 var start = 1
 var end = 8
 var c int
-var alreadyEntered []string
+var alreadyEnteredLetter []string
+var alreadyEnteredWords []string
 var mistake = false
 
-func ChooseDico() {
+func (d *Display) Nickname() {
+	var pseudo string
+	fmt.Println("Entrez votre Pseudo en sah")
+	fmt.Scan(&pseudo)
+	var choix int
+	fmt.Println("\033[H\033[2J\nVoulez-vous vous appeler : ", pseudo, "?\n1. Oui\n2. Non")
+	fmt.Scan(&choix)
+	switch choix {
+	case 1:
+		d.Pseudo = pseudo
+	case 2:
+		Disp.Nickname()
+	}
+}
+
+func (d *Display) ChooseDico() {
+	Disp.Nickname()
 	var choose int
-	fmt.Println("Choisissez le thème avec lequel vous allez jouer :\n1. Animaux\n2. Films\n3. Personnages de Films\n4. Voitures\n5. Villes\n6. Dictionnaire officiel du Scrabble 2012")
+	fmt.Println("Choisissez le thème avec lequel vous allez jouer :\n1. Easy\n2. Moyen\n3.Legend")
 	fmt.Scan(&choose)
 	fmt.Scan()
 	switch choose {
 	case 1:
-		mot := WriteWord("jeu/dico_animaux.txt")
+		mot := WriteWord("Hangman/jeu/dico_easy.txt")
+		Disp.Mode = "Easy"
 		ModeDeJeu(mot)
 	case 2:
-		mot := WriteWord("jeu/dico_films.txt")
+		mot := WriteWord("Hangman/jeu/dico_moyen.txt")
+		Disp.Mode = "Moyen"
 		ModeDeJeu(mot)
 	case 3:
-		mot := WriteWord("jeu/dico_pfilm.txt")
-		ModeDeJeu(mot)
-	case 4:
-		mot := WriteWord("jeu/dico_voiture.txt")
-		ModeDeJeu(mot)
-	case 5:
-		mot := WriteWord("jeu/dico-villes.txt")
-		ModeDeJeu(mot)
-	case 6:
-		mot := WriteWord("dictionnaire.txt")
+		mot := WriteWord("Hangman/jeu/dico_legend.txt")
+		Disp.Mode = "Legende"
 		ModeDeJeu(mot)
 	}
 }
+
 func ModeDeJeu(mot string) {
 	var choixmode int
 	fmt.Println("Choisissez votre mode de jeu : \n\n1. On vous donne la lettre random dans le mot\n2. Ca joue en mode vaillant et tu trouve tout tout seul")
@@ -107,19 +124,16 @@ func Jeu(mot string, mode string) {
 		}
 	}
 	for i := 1; c < 10; i++ {
-		Displaystock(mot, stock)
-		Choose(mot, stock)
+		Input(mot, stock)
 		if c == 10 {
 			fmt.Println("Vous avez perdu !\nLe mot était : ", mot)
 			DisplayResult(19, 34)
-			mot = WriteWord("dictionnaire.txt")
-			Replay(mot)
+			Replay()
 			return
 		}
 		if win {
-			mot = WriteWord("dictionnaire.txt")
 			DisplayResult(1, 17)
-			Replay(mot)
+			Replay()
 			return
 		}
 	}
@@ -185,8 +199,8 @@ func Inputletter(mot string, stock []string) {
 	var letter string
 	fmt.Scan(&letter)
 	fmt.Scan()
-	Check(mot, stock, letter, alreadyEntered)
-	alreadyEntered = append(alreadyEntered, letter)
+	Check(mot, stock, letter, alreadyEnteredLetter)
+	alreadyEnteredLetter = append(alreadyEnteredLetter, letter)
 	GoodLetter(mot, stock, letter)
 	if !isInWord && !mistake {
 		DisplayPendu(start, end)
@@ -240,6 +254,47 @@ func Inputword(mot string, stock []string) {
 	}
 }
 
+func Input(mot string, stock []string) {
+	Displaystock(mot, stock)
+
+	fmt.Println("\nListe des lettres que vous avez déjà entrées : ", alreadyEnteredLetter)
+	fmt.Println("Liste des mots que vous avez déjà entrées : ", alreadyEnteredWords)
+	fmt.Println("\nEntrez une lettre ou un mot")
+	var val string
+	fmt.Scan()
+	fmt.Scan(&val)
+	if len(val) == 1 {
+		Check(mot, stock, val, alreadyEnteredLetter)
+		alreadyEnteredLetter = append(alreadyEnteredLetter, val)
+		Disp.AEL = alreadyEnteredLetter
+		GoodLetter(mot, stock, val)
+		if !isInWord && !mistake {
+			DisplayPendu(start, end)
+			start += 8
+			end += 8
+			c++
+		}
+		isInWord = false
+		mistake = false
+	} else {
+		if val == mot {
+			fmt.Println("C'est le bon mot !")
+			win = true
+			Affectstock(mot, stock)
+
+		} else {
+			fmt.Println("Ce n'est pas le bon mot...")
+			start += 8
+			end += 8
+			c++
+			alreadyEnteredWords = append(alreadyEnteredWords, val)
+			Disp.AEW = alreadyEnteredWords
+
+		}
+	}
+
+}
+
 // Fonction pour compléter le stock si le mot est trouvé
 
 func Affectstock(mot string, stock []string) {
@@ -262,7 +317,7 @@ func Choose(mot string, stock []string) {
 	fmt.Scan()
 	switch choix {
 	case 1:
-		fmt.Println("\033[H\033[2J", "Liste des lettres que vous avez déjà entrées : ", alreadyEntered)
+		//fmt.Println("\033[H\033[2J", "Liste des lettres que vous avez déjà entrées : ", alreadyEnteredLetter)
 		Inputletter(mot, stock)
 		a = LenMot(stock)
 		if a == len(mot) {
@@ -272,7 +327,7 @@ func Choose(mot string, stock []string) {
 		}
 
 	case 2:
-		fmt.Println("\033[H\033[2J")
+		//fmt.Println("\033[H\033[2J")
 		Inputword(mot, stock)
 		if win {
 			return
@@ -280,7 +335,7 @@ func Choose(mot string, stock []string) {
 		Choose(mot, stock)
 
 	default:
-		fmt.Println("\033[H\033[2J")
+		//fmt.Println("\033[H\033[2J")
 		fmt.Println("Choix invalide, Veuillez choisir une option valide")
 		Choose(mot, stock)
 
@@ -309,7 +364,7 @@ func Check(mot string, stock []string, letter string, alreadyEntered []string) {
 	}
 }
 
-func Replay(mot string) {
+func Replay() {
 	var replay int
 	fmt.Println("\nCa te dis de rejouer ?\n1. OUI c'est trop bien le pendu \n2. NON il est guez ton jeu...")
 	fmt.Scan(&replay)
@@ -318,7 +373,7 @@ func Replay(mot string) {
 	case 1:
 		fmt.Println("Let's go mon gaté !")
 		Init()
-		ChooseDico()
+		Disp.ChooseDico()
 	case 2:
 		fmt.Println("T'es trop nul de toute façon...")
 		return
@@ -331,7 +386,8 @@ func Init() {
 	start = 1
 	end = 8
 	c = 0
-	alreadyEntered = nil
+	alreadyEnteredLetter = nil
+	alreadyEnteredWords = nil
 	mistake = false
 }
 

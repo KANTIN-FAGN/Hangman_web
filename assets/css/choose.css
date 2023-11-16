@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "chalk";
+    src: url("../font/Sandbox\ Melodrama.ttf") format("truetype");
+}
+
+html {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+* {
+    font-family: "chalk";
+    color: #ffffff;
+}
+
+body {
+    background-image: url('../img/Tableau.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    font-size: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cadre{
+    font-size:20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-image: url("../img/Encadrement-info-joueur.png");
+    background-size: 280%;
+    background-position: center;
+}
+
+.info{
+    background-image: url("../img/Encadrement-info-jeu.png");
+    background-size: 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.divsize{
+    padding: 40px;
+}
+section{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.size{
+    font-size: 40px;
+    
+    width:63vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/Encadrement-info-joueur.png");
+    background-position: center;
+    background-size: 200%;
+}
+
+.mode{
+    display: flex;
+    justify-content: space-around;
+    width: 100vh;
+}
+
+

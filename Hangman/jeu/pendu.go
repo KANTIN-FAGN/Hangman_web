@@ -7,7 +7,7 @@ import (
 )
 
 func DisplayPendu(start int, end int) {
-	file, err := os.Open("hangman.txt")
+	file, err := os.Open("Hangman/hangman.txt")
 	if err != nil {
 		fmt.Println("Ya une douille sur le fichier : ", err)
 		return
@@ -33,7 +33,7 @@ func DisplayPendu(start int, end int) {
 }
 
 func DisplayResult(start int, end int) {
-	file, err := os.Open("jeu/dico_ascii.txt")
+	file, err := os.Open("Hangman/jeu/dico_ascii.txt")
 	if err != nil {
 		fmt.Println("Ya une douille sur le fichier : ", err)
 		return

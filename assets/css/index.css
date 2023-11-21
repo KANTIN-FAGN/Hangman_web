@@ -26,19 +26,41 @@ body {
     padding: 0;
 }
 
-section {
+.section {
+    background-image: url('../img/encadrement-login.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 99%;
+    width: 50%;
+    height: 90%;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.section-global {
+    width: 90%;
+    height: 90%;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 60px;
-    height: 100vh;
-    width: 250vh;
-    padding-bottom: 150px;
-    padding-right: 50px;
-    background-image: url('../img/Encadrement-All.png');
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.titre {
+    background-image: url('../img/Soulignement-login.png');
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
+    font-size: 90px;
+}
+
+.entrer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 button {
@@ -50,7 +72,6 @@ button {
     background-image: url('../img/Encadrement-bouton.png');
     background-size: cover;
     background-position: center;
-    background-size: 1500px;
     background-repeat: no-repeat;
 }
 
@@ -60,14 +81,13 @@ button:hover {
 
 input {
     background: none;
+    background-image: url('../img/Encadrement-pseudo.png');
     border: none;
     outline: none;
     font-size: 50px;
-    background-image: url('../img/Encadrement-pseudo.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 1100px;
     padding: 30px;
 }
 
@@ -75,3 +95,77 @@ input::placeholder {
     color: #bba9a9;
 }
 
+@media only screen and (max-width: 1200px) {
+    .section {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .section {
+        width: 80%;
+    }
+
+    .titre {
+        font-size: 60px;
+    }
+
+    button {
+        font-size: 20px;
+        margin: 15px;
+    }
+
+    input {
+        font-size: 20px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .section {
+        width: 90%;
+    }
+
+    .titre {
+        font-size: 40px;
+    }
+
+    button {
+        font-size: 16px;
+        margin: 10px;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+@media only screen and (max-device-width: 1633px) {
+
+    .section {
+        background-image: none;
+        /* Supprime le background */
+    }
+
+    .section-global {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titre {
+        font-size: 100px;
+    }
+
+    input {
+        font-size: 41px;
+        padding: 23px;
+    }
+
+    button {
+        font-size: 50px;
+        margin: 10px;
+    }
+}

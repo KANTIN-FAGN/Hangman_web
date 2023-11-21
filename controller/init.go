@@ -3,7 +3,6 @@ package controller
 import (
 	h "HangmanWeb/Hangman/jeu"
 	initTemplate "HangmanWeb/temp"
-	"fmt"
 	"net/http"
 )
 
@@ -52,7 +51,6 @@ func InitJeu(w http.ResponseWriter, r *http.Request) {
 	if len(h.Test.Val) == 1 {
 		for _, i := range h.Test.AEL {
 			if i == h.Test.Val {
-				fmt.Println("T'as deja entrée la lettre mon zin")
 				h.Test.Erreur = 1
 				http.Redirect(w, r, "/jeu", http.StatusMovedPermanently)
 				return
@@ -61,14 +59,12 @@ func InitJeu(w http.ResponseWriter, r *http.Request) {
 	} else {
 		for _, i := range h.Test.AEW {
 			if i == h.Test.Val {
-				fmt.Println("Tchia déjà entrée le mot mon 100")
 				h.Test.Erreur = 2
 				http.Redirect(w, r, "/jeu", http.StatusMovedPermanently)
 				return
 			}
 		}
 	}
-	fmt.Println("ca passe")
 
 	h.Test.CheckVal() // on vérifie si la lettre est dans le mot ou si le mot est bon
 	//et on affecte AlreadyEnteredLetter ou AlreadyEnteredWord

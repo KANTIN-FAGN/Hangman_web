@@ -1,19 +1,23 @@
+{{define "init"}}
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil Hangman</title>
-    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../static/css/index.css">
 </head>
 <body>
     <section>
         <h1>LOGIN</h1>
-        <form action="post">
-        <label for="Pseudo"></label>
-        <input  type="text" id="pseudo" maxlength="15" placeholder="Pseudo (max 15)">
+        <form action="/init/treatment"method="post">
+            <label for="pseudo"></label>
+            <input  name="pseudo" type="text" id="pseudo" maxlength="15" placeholder="pseudo (max 15)">
+            <button type="submit">Valider</button>
         </form>
-        <button type="submit">Valider</button>
     </section>
 </body>
 </html>
+
+{{end}}

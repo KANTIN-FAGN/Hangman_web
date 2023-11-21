@@ -1,9 +1,7 @@
 package HangmanWeb
 
 import (
-	"bufio"
 	"fmt"
-	"log"
 	"math/rand"
 	"os"
 )
@@ -141,32 +139,32 @@ func Jeu(mot string, mode string) {
 
 // lis le fichier texte dans lequel se trouve le dico
 
-func ReadLines(dico string) ([]string, error) {
-	file, err := os.Open(dico)
-	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
+// func ReadLines(dico string) ([]string, error) {
+// 	file, err := os.Open(dico)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+// 	defer file.Close()
 
-	var lines []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-	return lines, scanner.Err()
-}
+// 	var lines []string
+// 	scanner := bufio.NewScanner(file)
+// 	for scanner.Scan() {
+// 		lines = append(lines, scanner.Text())
+// 	}
+// 	return lines, scanner.Err()
+// }
 
-// cherche un mot random dans le dico
+// // cherche un mot random dans le dico
 
-func WriteWord(dico string) string {
-	f, err := ReadLines(dico)
-	if err != nil {
-		log.Fatalf("readLines: %s", err)
-	}
-	motJeu := rand.Intn(len(f))
+// func WriteWord(dico string) string {
+// 	f, err := ReadLines(dico)
+// 	if err != nil {
+// 		log.Fatalf("readLines: %s", err)
+// 	}
+// 	motJeu := rand.Intn(len(f))
 
-	return f[motJeu]
-}
+// 	return f[motJeu]
+// }
 
 // Print la chaine avec les _ ou les lettres si trouvées
 
@@ -292,7 +290,6 @@ func Input(mot string, stock []string) {
 
 		}
 	}
-
 }
 
 // Fonction pour compléter le stock si le mot est trouvé
@@ -308,39 +305,39 @@ func Affectstock(mot string, stock []string) {
 
 // Fonction pour choisir entre rentrer une lettre ou directement tout le mot
 
-func Choose(mot string, stock []string) {
+// func Choose(mot string, stock []string) {
 
-	var choix int
-	var a int
-	fmt.Println("\nChoisissez une option : \n1. Emettre une hypothèse sur une lettre présente dans le mot\n2. Entrer directement le mot")
-	fmt.Scan(&choix)
-	fmt.Scan()
-	switch choix {
-	case 1:
-		//fmt.Println("\033[H\033[2J", "Liste des lettres que vous avez déjà entrées : ", alreadyEnteredLetter)
-		Inputletter(mot, stock)
-		a = LenMot(stock)
-		if a == len(mot) {
-			fmt.Println("\nBien joué ! Vous avez trouvé le mot : ", mot)
-			win = true
-			return
-		}
+// 	var choix int
+// 	var a int
+// 	fmt.Println("\nChoisissez une option : \n1. Emettre une hypothèse sur une lettre présente dans le mot\n2. Entrer directement le mot")
+// 	fmt.Scan(&choix)
+// 	fmt.Scan()
+// 	switch choix {
+// 	case 1:
+// 		//fmt.Println("\033[H\033[2J", "Liste des lettres que vous avez déjà entrées : ", alreadyEnteredLetter)
+// 		Inputletter(mot, stock)
+// 		a = LenMot(stock)
+// 		if a == len(mot) {
+// 			fmt.Println("\nBien joué ! Vous avez trouvé le mot : ", mot)
+// 			win = true
+// 			return
+// 		}
 
-	case 2:
-		//fmt.Println("\033[H\033[2J")
-		Inputword(mot, stock)
-		if win {
-			return
-		}
-		Choose(mot, stock)
+// 	case 2:
+// 		//fmt.Println("\033[H\033[2J")
+// 		Inputword(mot, stock)
+// 		if win {
+// 			return
+// 		}
+// 		Choose(mot, stock)
 
-	default:
-		//fmt.Println("\033[H\033[2J")
-		fmt.Println("Choix invalide, Veuillez choisir une option valide")
-		Choose(mot, stock)
+// 	default:
+// 		//fmt.Println("\033[H\033[2J")
+// 		fmt.Println("Choix invalide, Veuillez choisir une option valide")
+// 		Choose(mot, stock)
 
-	}
-}
+// 	}
+// }
 
 func Check(mot string, stock []string, letter string, alreadyEntered []string) {
 	for _, i := range alreadyEntered {

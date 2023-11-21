@@ -1,50 +1,49 @@
 {{define "choose"}}
 <!DOCTYPE html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Choose Mode</title>
-    <link rel="stylesheet" href="../static/css/choose.css">
-</head>
+    <link rel="stylesheet" href="../static/css/choose.css" />
+  </head>
 
-
-<body>
+  <body>
     <header class="header">
-        <div class="global-header">
-            <div class="header-element1">
-                <h1>Mode de Jeu</h1>
-            </div>
-            <div class="header-element2">
-                <p>{{.Pseudo}}</p>
-                <p>Niveau : {{.Level}}</p>
-                <p>Points : {{.Cpt}}</p>
-            </div>
+      <div class="global-header">
+        <div class="header-element1">
+          <h1>Mode de Jeu</h1>
         </div>
+        <div class="header-element2">
+          <p>Pseudo : {{.Pseudo}}</p>
+          <p>Niveau : {{.Level}}</p>
+          <p>Points : {{.Cpt}}</p>
+        </div>
+      </div>
     </header>
-    <section class="section-mode">
+    <form method="post" action="/choose/treatment">
+      <section class="section-mode">
         <div class="global-section">
-            <div class="modejeu">
-                <input type="radio" id="Choice1" name="choix" value="easy" />
-                <label class="radio-titre1 " for="Choice1">EASY</label>
-            </div>
-            <div class="modejeu">
-                <input type="radio" id="Choice2" name="choix" value="medium" />
-                <label class="radio-titre2" for="Choice2">MEDIUM</label>
-            </div>
-            <div class="modejeu">
-                <input type="radio" id="Choice3" name="choix" value="hard" />
-                <label class="radio-titre3" for="Choice3">HARD</label>
-            </div>
+          <div class="modejeu">
+            <input type="radio" id="Choice1" name="choix" value="EASY" />
+            <label class="radio-titre1" for="Choice1">EASY</label>
+          </div>
+          <div class="modejeu">
+            <input type="radio" id="Choice2" name="choix" value="MEDIUM" />
+            <label class="radio-titre2" for="Choice2">MEDIUM</label>
+          </div>
+          <div class="modejeu">
+            <input type="radio" id="Choice3" name="choix" value="HARD" />
+            <label class="radio-titre3" for="Choice3">HARD</label>
+          </div>
         </div>
-    </section>
-    <section class="section-validé">
+      </section>
+      <section class="section-validé">
         <div class="bouton">
-            <button class="bouton-validé" type="submit">Valider</button>
+          <button class="bouton-validé" type="submit">Valider</button>
         </div>
-    </section>
-</body>
-
+      </section>
+    </form>
+  </body>
 </html>
 {{end}}

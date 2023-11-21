@@ -1,25 +1,25 @@
+{{define "jeu"}}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HANGMAN</title>
-    <link rel="stylesheet" href="../assets/css/jeu.css">
-</head>
+    <link rel="stylesheet" href="../static/css/jeu.css" />
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <div class="global-header">
-            <div class="header-element1">
-                <h1>Titre</h1>
-            </div>
-            <div class="header-element2">
-                <p>_______________</p>
-                <p>Niveau :</p>
-                <p>Points :</p>
-            </div>
+      <div class="global-header">
+        <div class="header-element1">
+          <h1>{{.Mode}}</h1>
         </div>
+        <div class="header-element2">
+          <p>{{.Pseudo}}</p>
+          <p>Niveau : {{.Level}}</p>
+          <p>Points : {{.Cpt}}</p>
+        </div>
+      </div>
     </header>
     <section class="section">
         <div class="global-section">
@@ -50,7 +50,31 @@
                 </div>
             </div>
         </div>
+        <div class="hangman">
+          <img src="{{.Image}}" alt="Animation-hangman" class="" />
+        </div>
+        <div class="lettre">
+          <p>{{.DispMot}}</p>
+          <p class="lettrefind">{{.AEL}}</p>
+          <p>{{.AEW}}</p>
+          <form action="/jeu/treatment" method="post">
+            <div class="Submit">
+              <div class="postiton-submit">
+                <input
+                  name="lettre"
+                  type="text"
+                  id="lettre"
+                  maxlength="25"
+                  placeholder="Entrez une lettre"
+                />
+                <button type="submit">Valider</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
-</body>
-
+  </body>
 </html>
+
+{{end}}

@@ -34,6 +34,11 @@
                 <h1>DESSIN HANGMAN</h1>
             </div>
             <div class="lettre">
+                <p class="Erreur"><!-- {{if eq .Erreur 1}} -->
+                    Vous avez déjà entré la lettre !
+                    <!-- {{else}}
+                    Vous avez déjà entré le mot ! -->
+                </p>
                 <p>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
                 <p class="lettrefind">_, _, _, _, _, _, _, _, _, _, _.</p>
                 <p>_________________________, _________________________,</p>

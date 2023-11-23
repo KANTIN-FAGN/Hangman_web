@@ -31,7 +31,6 @@ func InitChoose(w http.ResponseWriter, r *http.Request) {
 		h.Test.BonMot = 3
 		h.Test.MauvaiseLettre = 0
 		h.Test.MauvaisMot = -2
-
 		h.Test.Mot = h.WriteWord("Hangman/dico/dico_easy.txt")
 	} else if h.Test.Mode == "MEDIUM" {
 		h.Test.BonneLettre = 3

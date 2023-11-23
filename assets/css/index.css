@@ -49,9 +49,14 @@ body {
 }
 
 .titre {
-    background-image: url('../img/Soulignement-login.png');
+    height: 150px;
+    width: 300px ;
+    background-image: url('../img/Soulignement-login2.png');
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 90px;
 }
 
@@ -63,7 +68,7 @@ body {
 
 }
 
-button {
+.bouton-validé {
     padding: 15px 30px;
     margin: 60px;
     background: none;
@@ -75,8 +80,10 @@ button {
     background-repeat: no-repeat;
 }
 
-button:hover {
-    color: #1eff00;
+.bouton-validé:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    color: #1eff00
 }
 
 input {

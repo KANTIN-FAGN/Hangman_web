@@ -61,10 +61,6 @@ header {
     translate: -10%;
 }
 
-.augmentation {
-    font-size: 100px;
-}
-
 .global-section {
     display: flex;
     justify-content: space-around;
@@ -111,7 +107,14 @@ header {
 }
 
 .Erreur {
-    font-size: 40px;
+    font-size: 50px;
+}
+
+input {
+    background:none;
+    border: none;
+    outline: none;
+    font-size: 50px;
 }
 
 
@@ -119,26 +122,25 @@ input::placeholder {
     color: #bba9a9;
 }
 
-input {
+.bouton-validé {
     display: flex;
     flex-direction: column;
     background: none;
     border: none;
     outline: none;
     font-size: 40px;
+    
+}
+
+.bouton-validé:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    color: #1eff00
 }
 
 .postiton-submit {
+    width: 525px;
     display: flex;
-}
-
-button {
-    background: none;
-    font-size: 50px;
-    border: none;
-    padding-left: 70px;
-}
-
-button:hover {
-    color: #1eff00;
+    justify-content: space-around;
+    align-items: center;
 }

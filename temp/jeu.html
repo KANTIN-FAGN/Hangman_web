@@ -1,64 +1,64 @@
 {{define "jeu"}}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HANGMAN</title>
-    <link rel="stylesheet" href="../static/css/jeu.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="global-header">
-        <div class="header-element1">
-          <h1>{{.Mode}}</h1>
-        </div>
-        <div class="header-element2">
-          <p>{{.Pseudo}}</p>
-          <p>Niveau : {{.Level}}</p>
-          <p>Points : {{.Cpt}}</p>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HANGMAN</title>
+  <link rel="stylesheet" href="../static/css/jeu.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="global-header">
+      <div class="header-element1">
+        <h1>{{.Mode}}</h1>
       </div>
-    </header>
-    <section class="section">
-      <div class="global-section">
-        <div class="point">
-          <p>lettre trouvée + 5 pts</p>
-          <p>Mot trouvé + 15 pts</p>
-          <p>Lettre manquée - 5 pts</p>
-          <p>Mot manqué - 15 pts</p>
-          <p>(récompenses adaptatives)</p>
-        </div>
-        <div class="hangman">
-          <img src="{{.Image}}" alt="Animation-hangman" class="" />
-        </div>
-        <div class="lettre">
-          {{if eq .Erreur 1}}
+      <div class="header-element2">
+        <p>{{.Pseudo}}</p>
+        <p>Niveau : {{.Level}}</p>
+        <p>Points : {{.Cpt}}</p>
+      </div>
+    </div>
+  </header>
+  <section class="section">
+    <div class="global-section">
+      <div class="point">
+        <p>lettre trouvée + 5 pts</p>
+        <p>Mot trouvé + 15 pts</p>
+        <p>Lettre manquée - 5 pts</p>
+        <p>Mot manqué - 15 pts</p>
+        <p>(récompenses adaptatives)</p>
+      </div>
+      <div class="hangman">
+        <img src="{{.Image}}" alt="Animation-hangman" class="" />
+      </div>
+      <div class="lettre">
+        <div class="Erreur">
+          {{if eq .Erreur 0}}
+          <p>Entre une lettre ou un mot</p>
+          {{else if eq .Erreur 1}}
           <p>T'as deja entré cette lettre</p>
           {{else if eq .Erreur 2}}
           <p>T'as deja entré ce mot</p>
           {{end}}
-
-          <p>{{.DispMot}}</p>
-          <p class="lettrefind">{{.AEL}}</p>
-          <p>{{.AEW}}</p>
-          <form action="/jeu/treatment" method="post">
-            <div class="Submit">
-              <div class="postiton-submit">
-                <input
-                  name="lettre"
-                  type="text"
-                  id="lettre"
-                  maxlength="25"
-                  placeholder="Entrez une lettre"
-                />
-                <button type="submit">Valider</button>
-              </div>
-            </div>
-          </form>
         </div>
+        <p>{{.DispMot}}</p>
+        <p class="lettrefind">{{.AEL}}</p>
+        <p>{{.AEW}}</p>
+        <form action="/jeu/treatment" method="post">
+          <div class="Submit">
+            <div class="postiton-submit">
+              <input name="lettre" type="text" id="lettre" maxlength="25" placeholder="Entrez une lettre" />
+              <button class="bouton-validé" type="submit">Valider</button>
+            </div>
+          </div>
+        </form>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+</body>
+
 </html>
 {{end}}

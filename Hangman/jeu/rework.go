@@ -23,7 +23,6 @@ func (t *Choose) CheckVal() {
 		if !isInWord {
 			t.Cpt++
 			t.Image = "../static/img/hangman/hangman" + string(t.Cpt+47) + ".png" //
-			fmt.Println(t.Image)
 		}
 		isInWord = false
 		t.DisplayStock()
@@ -36,6 +35,7 @@ func (t *Choose) CheckVal() {
 			return
 		} else {
 			t.Cpt++
+			t.Image = "../static/img/hangman/hangman" + string(t.Cpt+47) + ".png" //
 		}
 	}
 }

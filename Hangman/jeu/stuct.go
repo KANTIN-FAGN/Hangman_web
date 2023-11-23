@@ -13,4 +13,5 @@ type Choose struct {
 	Win     bool
 	Image   string
 	Erreur  int
+	PtsUser int
 }

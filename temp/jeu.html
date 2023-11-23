@@ -33,13 +33,7 @@
         </div>
         <div class="lettre">
           <div class="Erreur">
-            {{if eq .Erreur 0}}
             <p>Entre une lettre ou un mot</p>
-            {{else if eq .Erreur 1}}
-            <p>T'as deja entré cette lettre</p>
-            {{else if eq .Erreur 2}}
-            <p>T'as deja entré ce mot</p>
-            {{end}}
           </div>
           <p>{{.DispMot}}</p>
           <p class="lettrefind">{{.AEL}}</p>

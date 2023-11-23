@@ -23,11 +23,10 @@
     <section class="section">
       <div class="global-section">
         <div class="point">
-          <p>lettre trouvée + 5 pts</p>
-          <p>Mot trouvé + 15 pts</p>
-          <p>Lettre manquée - 5 pts</p>
-          <p>Mot manqué - 15 pts</p>
-          <p>(récompenses adaptatives)</p>
+          <p>lettre trouvée + {{.BonneLettre}} pts</p>
+          <p>Mot trouvé + {{.BonMot}} pts</p>
+          <p>Lettre manquée {{.MauvaiseLettre}} pts</p>
+          <p>Mot manqué {{.MauvaisMot}}</p>
         </div>
         <div class="hangman">
           <img src="{{.Image}}" alt="Animation-hangman" class="" />

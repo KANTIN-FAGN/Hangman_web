@@ -33,6 +33,16 @@
         </div>
       </div>
     </section>
+    <audio id="myAudio" autoplay>
+      <source src="../static/sound/perdu.mp3" type="audio/mp3" />
+    </audio>
+
+    <script>
+      var audio = document.getElementById("myAudio");
+      audio.addEventListener("loadeddata", function () {
+        audio.play();
+      });
+    </script>
   </body>
 </html>
 

@@ -2,7 +2,6 @@ package HangmanWeb
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"math/rand"
 	"os"
@@ -17,7 +16,7 @@ func (t *Choose) CheckVal() {
 		for c, i := range t.Mot {
 			if string(i) == t.Val {
 				t.DispMot[c] = t.Val
-				isInWord = true
+				isInWord = true //si la lettre est dans le mot on ajoute les points en fct du mode
 				if t.Mode == "EASY" {
 					t.PtsUser += 1
 				} else if t.Mode == "MEDIUM" {
@@ -32,16 +31,15 @@ func (t *Choose) CheckVal() {
 			if t.Mode == "MEDIUM" {
 				t.PtsUser -= 1
 			} else if t.Mode == "HARD" {
-				fmt.Println("-3")
 				t.PtsUser -= 3
 			}
-			t.Image = "../static/img/hangman/hangman" + string(t.Cpt+47) + ".png" //
+			t.Image = "../static/img/hangman/hangman" + string(t.Cpt+47) + ".png" // affichage de l'image du hangman
 		}
 		isInWord = false
-		t.DisplayStock()
-		t.WordComplete()
+		t.DisplayStock() // on affiche le mot avec les underscores
+		t.WordComplete() // si toutes les lettres sont dans le mot on a gagné
 	} else {
-		t.AEW = append(Test.AEW, t.Val)
+		t.AEW = append(Test.AEW, t.Val) // on affecte la liste des mots deja entrée
 		if t.Val == t.Mot {
 			if t.Mode == "EASY" {
 				t.PtsUser += 3
@@ -59,10 +57,9 @@ func (t *Choose) CheckVal() {
 			} else if t.Mode == "MEDIUM" {
 				t.PtsUser -= 3
 			} else {
-				fmt.Println("-6")
 				t.PtsUser -= 6
 			}
-			t.Image = "../static/img/hangman/hangman" + string(t.Cpt+47) + ".png" //
+			t.Image = "../static/img/hangman/hangman" + string(t.Cpt+47) + ".png"
 		}
 	}
 }
@@ -116,7 +113,7 @@ func ReadLines(dico string) ([]string, error) {
 
 // cherche un mot random dans le dico
 
-func WriteWord(dico string) string {
+func WriteWord(dico string) string { // choix du mot aléatoire dans un dico
 	f, err := ReadLines(dico)
 	if err != nil {
 		log.Fatalf("readLines: %s", err)

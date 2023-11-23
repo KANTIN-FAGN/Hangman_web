@@ -3,9 +3,9 @@ package HangmanWeb
 type Choose struct {
 	Pseudo         string
 	Level          int
-	Cpt            int
+	Cpt            int // chances pour le hangman
 	Mode           string
-	Val            string
+	Val            string //valeur entrée par l'utilisateur
 	Mot            string
 	AEL            []string
 	AEW            []string

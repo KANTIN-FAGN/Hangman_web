@@ -25,13 +25,12 @@ func DisplayChoose(w http.ResponseWriter, r *http.Request) {
 
 func InitChoose(w http.ResponseWriter, r *http.Request) {
 	h.Test.Mode = r.FormValue("choix")
-	h.Test.Mot = "lol"
-	if h.Test.Mode == "EASY" {
+	if h.Test.Mode == "EASY" { // le barème des points gagnés ou perdu en fct du mode
 		h.Test.BonneLettre = 1
 		h.Test.BonMot = 3
 		h.Test.MauvaiseLettre = 0
 		h.Test.MauvaisMot = -2
-		h.Test.Mot = h.WriteWord("Hangman/dico/dico_easy.txt")
+		h.Test.Mot = h.WriteWord("Hangman/dico/dico_easy.txt") // choix du dico en fct du mode
 	} else if h.Test.Mode == "MEDIUM" {
 		h.Test.BonneLettre = 3
 		h.Test.BonMot = 5
@@ -62,7 +61,7 @@ func DisplayJeu(w http.ResponseWriter, r *http.Request) {
 func InitJeu(w http.ResponseWriter, r *http.Request) {
 
 	h.Test.Val = r.FormValue("lettre") // on récupère la lettre entrée par l'utilisateur
-	if len(h.Test.Val) == 1 {
+	if len(h.Test.Val) == 1 {          //si c'est que une lettre :
 		for _, i := range h.Test.AEL {
 			if i == h.Test.Val {
 				h.Test.Erreur = 1
@@ -70,7 +69,7 @@ func InitJeu(w http.ResponseWriter, r *http.Request) {
 				return
 			}
 		}
-	} else {
+	} else { //si c'est un mot (plus de 2 lettres) :
 		for _, i := range h.Test.AEW {
 			if i == h.Test.Val {
 				h.Test.Erreur = 2
@@ -104,11 +103,3 @@ func Restart(w http.ResponseWriter, r *http.Request) {
 	h.Test.Restart()
 	http.Redirect(w, r, "choose", http.StatusMovedPermanently)
 }
-
-// if h.Test.Mode == "EASY"{
-// 	h.Test.PtsUser += 1
-// } else if h.Test.Mode == "MOYEN"{
-// 	h.Test.PtsUser += 3
-// } else {
-// 	h.Test.PtsUser += 5
-// }

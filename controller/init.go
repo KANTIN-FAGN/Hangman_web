@@ -26,13 +26,26 @@ func DisplayChoose(w http.ResponseWriter, r *http.Request) {
 func InitChoose(w http.ResponseWriter, r *http.Request) {
 	h.Test.Mode = r.FormValue("choix")
 	h.Test.Mot = "lol"
-	// if h.Test.Mode == "EASY"{
-	// 	h.Test.Mot = h.WriteWord(dico_easy)
-	// } else if h.Test.Mode == "MEDIUM"{
-	// 	h.Test.Mot = h.WriteWord(dico_moyen)
-	// } else{
-	// 	h.Test.Mot = h.WriteWord(dico_legend)
-	// }
+	if h.Test.Mode == "EASY" {
+		h.Test.BonneLettre = 1
+		h.Test.BonMot = 3
+		h.Test.MauvaiseLettre = 0
+		h.Test.MauvaisMot = -2
+		h.Test.Mot = h.WriteWord("dico_easy")
+	} else if h.Test.Mode == "MEDIUM" {
+		h.Test.BonneLettre = 3
+		h.Test.BonMot = 5
+		h.Test.MauvaiseLettre = -1
+		h.Test.MauvaisMot = -3
+		h.Test.Mot = h.WriteWord("dico_moyen")
+	} else {
+		h.Test.BonneLettre = 5
+		h.Test.BonMot = 9
+		h.Test.MauvaiseLettre = -3
+		h.Test.MauvaisMot = -6
+		h.Test.Mot = h.WriteWord("dico_legend")
+	}
+
 	h.Test.InitTableau()
 	h.Test.Image = "../static/img/hangman/hangman_base.png"
 	http.Redirect(w, r, "/jeu", http.StatusMovedPermanently)
@@ -47,6 +60,7 @@ func DisplayJeu(w http.ResponseWriter, r *http.Request) {
 }
 
 func InitJeu(w http.ResponseWriter, r *http.Request) {
+
 	h.Test.Val = r.FormValue("lettre") // on récupère la lettre entrée par l'utilisateur
 	if len(h.Test.Val) == 1 {
 		for _, i := range h.Test.AEL {
@@ -90,3 +104,11 @@ func Restart(w http.ResponseWriter, r *http.Request) {
 	h.Test.Restart()
 	http.Redirect(w, r, "choose", http.StatusMovedPermanently)
 }
+
+// if h.Test.Mode == "EASY"{
+// 	h.Test.PtsUser += 1
+// } else if h.Test.Mode == "MOYEN"{
+// 	h.Test.PtsUser += 3
+// } else {
+// 	h.Test.PtsUser += 5
+// }

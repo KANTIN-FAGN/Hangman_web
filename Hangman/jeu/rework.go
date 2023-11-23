@@ -18,23 +18,50 @@ func (t *Choose) CheckVal() {
 			if string(i) == t.Val {
 				t.DispMot[c] = t.Val
 				isInWord = true
+				if t.Mode == "EASY" {
+					t.PtsUser += 1
+				} else if t.Mode == "MEDIUM" {
+					t.PtsUser += 3
+				} else {
+					t.PtsUser += 5
+				}
 			}
 		}
 		if !isInWord {
 			t.Cpt++
+			if t.Mode == "MEDIUM" {
+				t.PtsUser -= 1
+			} else if t.Mode == "HARD" {
+				fmt.Println("-3")
+				t.PtsUser -= 3
+			}
 			t.Image = "../static/img/hangman/hangman" + string(t.Cpt+47) + ".png" //
 		}
 		isInWord = false
 		t.DisplayStock()
 		t.WordComplete()
-		fmt.Println(Test.DispMot)
 	} else {
 		t.AEW = append(Test.AEW, t.Val)
 		if t.Val == t.Mot {
+			if t.Mode == "EASY" {
+				t.PtsUser += 3
+			} else if t.Mode == "MEDIUM" {
+				t.PtsUser += 5
+			} else {
+				t.PtsUser += 9
+			}
 			t.Win = true
 			return
 		} else {
 			t.Cpt++
+			if t.Mode == "EASY" {
+				t.PtsUser -= 2
+			} else if t.Mode == "MEDIUM" {
+				t.PtsUser -= 3
+			} else {
+				fmt.Println("-6")
+				t.PtsUser -= 6
+			}
 			t.Image = "../static/img/hangman/hangman" + string(t.Cpt+47) + ".png" //
 		}
 	}

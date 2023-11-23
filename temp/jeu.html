@@ -7,6 +7,7 @@
     <title>HANGMAN</title>
     <link rel="stylesheet" href="../static/css/jeu.css" />
   </head>
+
   <body>
     <header class="header">
       <div class="global-header">
@@ -15,8 +16,7 @@
         </div>
         <div class="header-element2">
           <p>{{.Pseudo}}</p>
-          <p>Niveau : {{.Level}}</p>
-          <p>Points : {{.Cpt}}</p>
+          <p>Points : {{.PtsUser}}</p>
         </div>
       </div>
     </header>
@@ -33,12 +33,15 @@
           <img src="{{.Image}}" alt="Animation-hangman" class="" />
         </div>
         <div class="lettre">
-          {{if eq .Erreur 1}}
-          <p>T'as deja entré cette lettre</p>
-          {{else if eq .Erreur 2}}
-          <p>T'as deja entré ce mot</p>
-          {{end}}
-          <p>Kantin mange mon zizi</p>
+          <div class="Erreur">
+            {{if eq .Erreur 0}}
+            <p>Entre une lettre ou un mot</p>
+            {{else if eq .Erreur 1}}
+            <p>T'as deja entré cette lettre</p>
+            {{else if eq .Erreur 2}}
+            <p>T'as deja entré ce mot</p>
+            {{end}}
+          </div>
           <p>{{.DispMot}}</p>
           <p class="lettrefind">{{.AEL}}</p>
           <p>{{.AEW}}</p>
@@ -52,7 +55,7 @@
                   maxlength="25"
                   placeholder="Entrez une lettre"
                 />
-                <button type="submit">Valider</button>
+                <button class="bouton-validé" type="submit">Valider</button>
               </div>
             </div>
           </form>

@@ -7,6 +7,10 @@ import (
 )
 
 func DisplayInit(w http.ResponseWriter, r *http.Request) {
+	if h.Test.URL != "" {
+		http.Redirect(w, r, h.Test.URL, http.StatusMovedPermanently)
+	}
+	h.Test.URL = "/init"
 	initTemplate.Temp.ExecuteTemplate(w, "init", nil)
 }
 
@@ -15,11 +19,17 @@ func InitInit(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/init", http.StatusPermanentRedirect)
 	}
 	h.Test.Pseudo = r.FormValue("pseudo")
+	h.Test.URL = "/choose"
 	http.Redirect(w, r, "/choose", http.StatusPermanentRedirect)
 
 }
 
 func DisplayChoose(w http.ResponseWriter, r *http.Request) {
+
+	if h.Test.URL != "/choose" {
+		http.Redirect(w, r, h.Test.URL, http.StatusMovedPermanently)
+	}
+	h.Test.URL = "/jeu"
 	initTemplate.Temp.ExecuteTemplate(w, "choose", h.Test)
 }
 
@@ -47,15 +57,20 @@ func InitChoose(w http.ResponseWriter, r *http.Request) {
 
 	h.Test.InitTableau()
 	h.Test.Image = "../static/img/hangman/hangman_base.png"
+	h.Test.URL = "/jeu"
 	http.Redirect(w, r, "/jeu", http.StatusMovedPermanently)
 }
 
 func DisplayJeu(w http.ResponseWriter, r *http.Request) {
+	if h.Test.URL != "/jeu" {
+		http.Redirect(w, r, h.Test.URL, http.StatusMovedPermanently)
+	}
+	h.Test.URL = "/jeu"
 	if h.Test.Mode == "" {
 		http.Redirect(w, r, "/choose", http.StatusPermanentRedirect)
 	}
-	h.Test.Erreur = 0
 	initTemplate.Temp.ExecuteTemplate(w, "jeu", h.Test)
+	h.Test.Erreur = 0
 }
 
 func InitJeu(w http.ResponseWriter, r *http.Request) {
@@ -78,28 +93,48 @@ func InitJeu(w http.ResponseWriter, r *http.Request) {
 			}
 		}
 	}
-
+	for _, i := range h.Test.Val {
+		if i < 97 || i > 122 {
+			h.Test.Erreur = 3
+			http.Redirect(w, r, "/jeu", http.StatusMovedPermanently)
+			return
+		}
+	}
 	h.Test.CheckVal() // on vérifie si la lettre est dans le mot ou si le mot est bon
 	//et on affecte AlreadyEnteredLetter ou AlreadyEnteredWord
 	if h.Test.Win {
+		h.Test.URL = "/win"
 		http.Redirect(w, r, "/win", http.StatusMovedPermanently)
 	} else if h.Test.Cpt >= 10 {
+		h.Test.URL = "/loose"
 		http.Redirect(w, r, "/loose", http.StatusMovedPermanently)
 	} else {
+		h.Test.URL = "/jeu"
 		http.Redirect(w, r, "/jeu", http.StatusMovedPermanently)
 
 	}
 }
 
 func DisplayWin(w http.ResponseWriter, r *http.Request) {
+	if h.Test.URL != "/win" {
+		http.Redirect(w, r, h.Test.URL, http.StatusMovedPermanently)
+	}
 	initTemplate.Temp.ExecuteTemplate(w, "win", h.Test)
 }
 
 func DisplayLoose(w http.ResponseWriter, r *http.Request) {
+	if h.Test.URL != "/loose" {
+		http.Redirect(w, r, h.Test.URL, http.StatusMovedPermanently)
+	}
+	if h.Test.PtsUser < 0 {
+		h.Test.PtsUser = 0
+	}
 	initTemplate.Temp.ExecuteTemplate(w, "loose", h.Test)
+
 }
 
 func Restart(w http.ResponseWriter, r *http.Request) {
 	h.Test.Restart()
+	h.Test.URL = "/choose"
 	http.Redirect(w, r, "choose", http.StatusMovedPermanently)
 }

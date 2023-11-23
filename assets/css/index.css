@@ -27,7 +27,7 @@ body {
 }
 
 .section {
-    background-image: url('../img/encadrement-login.png');
+    background-image: url('../img/encadrement-login2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-size: 99%;
@@ -40,7 +40,7 @@ body {
 
 .section-global {
     width: 90%;
-    height: 90%;
+    height: 30%;
     display: flex;
     flex-direction: column;
     align-items: center;

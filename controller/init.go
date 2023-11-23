@@ -31,19 +31,19 @@ func InitChoose(w http.ResponseWriter, r *http.Request) {
 		h.Test.BonMot = 3
 		h.Test.MauvaiseLettre = 0
 		h.Test.MauvaisMot = -2
-		// h.Test.Mot = h.WriteWord("dico_easy")
+		h.Test.Mot = h.WriteWord("Hangman/dico/dico_easy.txt")
 	} else if h.Test.Mode == "MEDIUM" {
 		h.Test.BonneLettre = 3
 		h.Test.BonMot = 5
 		h.Test.MauvaiseLettre = -1
 		h.Test.MauvaisMot = -3
-		// h.Test.Mot = h.WriteWord("dico_moyen")
+		h.Test.Mot = h.WriteWord("Hangman/dico/dico_moyen.txt")
 	} else {
 		h.Test.BonneLettre = 5
 		h.Test.BonMot = 9
 		h.Test.MauvaiseLettre = -3
 		h.Test.MauvaisMot = -6
-		// h.Test.Mot = h.WriteWord("dico_legend")
+		h.Test.Mot = h.WriteWord("Hangman/dico/dico_legend.txt")
 	}
 
 	h.Test.InitTableau()

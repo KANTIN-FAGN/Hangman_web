@@ -50,7 +50,7 @@ header {
 .header-element2 {
     background-image: url('../img/Encadrement-info-joueur.png');
     background-repeat: no-repeat;
-    font-size: 25px;
+    font-size: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,9 +88,11 @@ header {
     height: 600px;
     width: 650px;
 }
-
+.mot {
+    font-size: 50px;
+}
 .lettre {
-    background-image: url('../img/Encadrement-lettre.png');
+    background-image: url('../img/Encadrement-lettre2.png');
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -103,7 +105,11 @@ header {
 }
 
 .lettrefind {
-    font-size: 40px;
+    font-size: 70px;
+}
+
+.Wordfind {
+    font-size: 50px;
 }
 
 .Erreur {

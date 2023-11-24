@@ -43,9 +43,9 @@
             <p>Entrez une lettre ou un mot</p>
             {{end}}
           </div>
-          <p>{{.DispMot}}</p>
+          <p class="mot">{{.DispMot}}</p>
           <p class="lettrefind">{{.AEL}}</p>
-          <p>{{.AEW}}</p>
+          <p class="Wordfind">{{.AEW}}</p>
           <form action="/jeu/treatment" method="post">
             <div class="Submit">
               <div class="postiton-submit">
@@ -53,6 +53,7 @@
                   name="lettre"
                   type="text"
                   id="lettre"
+                  minlength="1"
                   maxlength="25"
                   placeholder="Entrez une lettre"
                 />

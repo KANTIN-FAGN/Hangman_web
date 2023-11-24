@@ -50,7 +50,7 @@ header {
 .header-element2 {
     background-image: url('../img/Encadrement-info-joueur.png');
     background-repeat: no-repeat;
-    font-size: 25px;
+    font-size: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -9,6 +9,7 @@ type Choose struct {
 	Mot            string
 	AEL            []string
 	AEW            []string
+	URL            string
 	DispMot        []string
 	Win            bool
 	Image          string

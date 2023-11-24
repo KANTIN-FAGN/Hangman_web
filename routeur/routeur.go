@@ -7,7 +7,8 @@ import (
 )
 
 func InitServe() {
-	http.HandleFunc("/init", controller.DisplayInit)
+	// http.HandleFunc("/initroad", controller.InitAll)
+	http.HandleFunc("/", controller.DisplayInit)
 	http.HandleFunc("/choose", controller.DisplayChoose)
 	http.HandleFunc("/jeu", controller.DisplayJeu)
 	http.HandleFunc("/init/treatment", controller.InitInit)
@@ -22,5 +23,5 @@ func InitServe() {
 	fileserver := http.FileServer(http.Dir(rootDoc + "/assets"))
 	http.Handle("/static/", http.StripPrefix("/static/", fileserver))
 
-	http.ListenAndServe("localhost:8080", nil)
+	http.ListenAndServe("localhost:8081", nil)
 }

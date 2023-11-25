@@ -12,7 +12,7 @@
 
 3. Veuillez ouvrir votre navigateur.
 
-    localhost:8080/init
+    localhost:8081 (dans votre URL)
 
 ## Description
 
